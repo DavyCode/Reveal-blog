@@ -10,14 +10,20 @@ module.exports = {
 
   attributes: {
     title: {
-      type: 'string'
+      type: 'string',
+      required: true
     },
     body:{
-      type: 'string'
-    },
-    category: {
-      type: 'string'
+      type: 'string',
+      required: true
     }
+    
+
+    //RELATIONSHIP REFERENCE TO A CATEGORY
+    // ,category: {
+    //   collection: 'category',
+    //   via: 'poster'
+    // }
     // ,
     // image : { 
     //   type : 'string',
