@@ -6,9 +6,13 @@
  */
 
 module.exports = {
-  //SHOW NEW CONTROLLER
+  //POST CONTROLLER
   home: function (req, res) {
     res.view('post/home')
   },	
+   //SHOW CONTROLLER
+  show: function(req, res) {
+    res.view('post/show')
+  }
 };
 
