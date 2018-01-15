@@ -11,19 +11,19 @@ module.exports = {
   attributes: {
     title: {
       type: 'string',
-      required: true
+      // required: true
     },
     body:{
       type: 'string',
-      required: true
+      // required: true
     }
     
 
     //RELATIONSHIP REFERENCE TO A CATEGORY
-    // ,category: {
-    //   collection: 'category',
-    //   via: 'poster'
-    // }
+    ,category: {
+      collection: 'postcategory',
+      via: 'poster'
+    }
     // ,
     // image : { 
     //   type : 'string',
