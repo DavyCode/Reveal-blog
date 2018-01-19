@@ -51,15 +51,17 @@
 						<tbody>
 
 					<!-- populate section with post	==================================================================	 -->
-							<% post.forEach(function(post) {%>
+						<%  var count = 0; %>
+					<% post.forEach(function(post) {%>
+								<% ++count; %>
 							<tr>
-								<td scope="row"><%= post.id %></td>
+								<td scope="row"><%= count %></td>
 								<td> <%= post.title %></td>
 								<td>category</td>
 								<td> <%= post.createdAt %></td>
-								<td><a href="/admin/edit" class="btn btn-secondary"><i class="fa fa-angle-double-right"></i> Details</a></td>
+								<td><a href="/admin/edit/<%= post.id %>" class="btn btn-secondary"><i class="fa fa-angle-double-right"></i> Details</a></td>
 							</tr>	
-							<%})%>						
+					<%})%>						
 						</tbody>
 					</table>
 				</div>
@@ -68,7 +70,7 @@
 				<div class="card text-center card-primary text-white mb-3">
 					<div class="card-block">
 						<h3>Posts</h3>
-						<h1 class="display-4"><i class="fa fa-pencil"></i>6</h1>
+						<h1 class="display-4"><i class="fa fa-pencil"></i> <%= post.length %></h1>
 						<a href="/post/home" class="btn btn-sm btn-outline-secondary text-white">View</a>
 					</div>
 				</div>

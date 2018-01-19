@@ -4,7 +4,6 @@
  * @description :: Server-side logic for managing postcategories
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
-var cart;
 
 module.exports = {
   //CREATE POST 

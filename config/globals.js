@@ -9,6 +9,7 @@
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.globals.html
  */
 var post = require('../api/models/Post.js');
+var category = require('../api/models/Postcategory.js');
 
 module.exports.globals = {
 
@@ -32,6 +33,7 @@ module.exports.globals = {
 
   async: true,
   Post : post,
+  Category: category,
   /****************************************************************************
   *                                                                           *
   * Expose the sails instance representing your app. If this is disabled, you *

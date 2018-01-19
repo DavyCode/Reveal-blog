@@ -24,8 +24,17 @@ module.exports = {
         res.send(500, { error: "Cant find articles in database"})
       }
       res.view('admin/dashboard', {post: post});
-      console.log(post)
     });  
+
+
+    // Postcategory.find({}).exec(function(err, category) {
+    //   if(err){
+    //     res.send(500, { error: "Cant find articles in database"})
+    //   }
+    //   res.view('admin/dashboard', {category: category});
+    //   console.log(category)
+    // }); 
+
 
     // res.view('admin/dashboard', { category: categories}
     
@@ -39,12 +48,59 @@ module.exports = {
 
   //EDIT POST
   edit: function (req, res) {
-    res.view('admin/edit')
+    Post.findOne({ 
+      id: req.params.id
+    })
+    .exec(function(err, foundPost) {
+      if(err){
+        res.send(500, {error: 'Cannot find post with the given id : ' +id}
+        );
+      }
+      res.view('admin/edit', { foundPost : foundPost});
+    });
+
   },
 
   //UPDATE POST
   update: function(req, res) {
     // handle updating post
+    var title = req.body.title;
+    var body = req.body.body;
+    // var category = req.body.category;
+    // var image = req.body.image;
+    
+    if(body.length > 0 && title.length > 0){
+      Post.update({id: req.params.id},
+        {
+          title: title, 
+          body: body
+        })
+        .exec(function(err) {
+          if(err){
+            res.send(500,
+              {error: 'Could not update post'}
+            );
+          }
+          res.redirect('/admin/dashboard');
+        });
+      }else{
+         res.redirect('/admin/edit/'+req.params.id);
+      }
+  },
+
+  delete: function(req, res) {
+    Post.destroy({
+      id: req.params.id
+    })
+    .exec(function(err) {
+      if(err){
+        res.send(500,
+           {error: 'Could not delete article'}
+        );
+      }
+      res.redirect('/admin/dashboard');
+    });
+    return false;
   }
 
 };
