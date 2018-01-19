@@ -18,12 +18,12 @@
 			<div class="col-md-3">
 				<a href="#" class="btn btn-primary btn-block" data-toggle="modal" data-target="#addPostModal"><i class="fa fa-plus"></i> Add Post</a>
 			</div>
-			<div class="col-md-3">
+			<!-- <div class="col-md-3">
 				<a href="#" class="btn btn-success btn-block" data-toggle="modal" data-target="#addCategoryModal"><i class="fa fa-plus"></i> Add Catgeory</a>
 			</div>
 			<div class="col-md-3">
 				<a href="#" class="btn btn-warning btn-block" data-toggle="modal" data-target="#addUserModal"><i class="fa fa-plus"></i> Add User</a>
-			</div>
+			</div> -->
 		</div>
 	</div>
 </section>
@@ -49,13 +49,17 @@
 							</tr>
 						</thead>
 						<tbody>
+
+					<!-- populate section with post	==================================================================	 -->
+							<% post.forEach(function(post) {%>
 							<tr>
-								<td scope="row">1</td>
-								<td>Post One</td>
-								<td>Web Development</td>
-								<td>July 11, 2017</td>
+								<td scope="row"><%= post.id %></td>
+								<td> <%= post.title %></td>
+								<td>category</td>
+								<td> <%= post.createdAt %></td>
 								<td><a href="/admin/edit" class="btn btn-secondary"><i class="fa fa-angle-double-right"></i> Details</a></td>
-							</tr>							
+							</tr>	
+							<%})%>						
 						</tbody>
 					</table>
 				</div>
@@ -69,7 +73,7 @@
 					</div>
 				</div>
 
-				<div class="card text-center card-success text-white mb-3">
+				<!-- <div class="card text-center card-success text-white mb-3">
 					<div class="card-block">
 						<h3>Categories</h3>
 						<h1 class="display-4"><i class="fa fa-folder-open-o"></i>4</h1>
@@ -83,7 +87,7 @@
 						<h1 class="display-4"><i class="fa fa-users"></i>6</h1>
 						<a href="" class="btn btn-sm btn-outline-secondary text-white">View</a>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>
@@ -100,59 +104,94 @@
 	</div>
 </footer>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- =================================================================================== -->
 
 <!-- ADD POST MODAL -->
-<div class="modal fade container" id="addPostModal">
-	<div class="row">
-		<div class="col-lg-10">
-			<div class="modal-dialog modal-lg">
-				<div class="modal-content">
-					<div class="modal-header bg-primary text-white">
-						<h5 class="modal-title" id="addPostModalLabel">Add Post</h5>
-						<button class="close" data-dismiss="modal">
-							<span>&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-				<form action="/post/create" method="Post">
-							<div class="form-group">
-								<label for="title" class="form-control-label">Title</label>
-								<input type="text" class="form-control" name="title">
-							</div>
-							<div class="form-group">
-								<label for="category" class="form-control-label">Category</label>
-								<select class="form-control" name="category">
-									<!-- dynamic values from category  -->
-									<option value="">Web Development</option>
-									<option value="">Tech Gadgets</option>
-									<option value="">Business</option>
-									<option value="">Health & Wellness</option>
-								</select>
-							</div>
-							<div class="form-group bg-faded p-3">
-								<label for="file">Image Upload</label>
-								<input type="file" class="form-control-file" id="file" name="image">
-								<small id="fileHelp" class="form-text text-muted">
-									Max Size 3MB
-								</small>
-							</div>
-							<div class="form-group">
-								<label for="body">Body</label>
-								<textarea class="form-control" name="body"></textarea>
-							</div>
-					</div>
-					<div class="modal-footer">
-						<button class="btn btn-secondary" data-dismiss="modal">Close</button>
-						<button class="btn btn-primary" data-dismiss="modal">Add Post</button>
+<form action="/post/create" method="Post" class="addModalFormTag">
+	<div class="modal fade container" id="addPostModal">
+		<div class="row">
+			<div class="col-lg-10">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<div class="modal-header bg-primary text-white">
+							<h5 class="modal-title" id="addPostModalLabel">Add Post</h5>
+							<button class="close" data-dismiss="modal">
+								<span>&times;</span>
+							</button>
+						</div>
+
+						<div class="modal-body">
+					
+								<div class="form-group">
+									<label for="title" class="form-control-label">Title</label>
+									<input type="text" class="form-control" name="title">
+								</div>
+								
+								<div class="form-group">
+									<label for="category" class="form-control-label">Category</label>
+									<select class="form-control" name="category">
+		<!-- for each category in the list create an option -->
+										<!-- dynamic values from category  -->
+										<option value=""> category </option>
+
+									</select>
+								</div>
+
+								<div class="form-group bg-faded p-3">
+									<label for="file">Image Upload</label>
+									<input type="file" class="form-control-file" id="file" name="image">
+									<small id="fileHelp" class="form-text text-muted">
+										Max Size 3MB
+									</small>
+								</div>
+
+								<div class="form-group">
+									<label for="body">Body</label>
+									<textarea class="form-control" name="body"></textarea>
+								</div>
+						</div>
+						<div class="modal-footer">
+							<button class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<input  class="btn btn-primary" type="submit" value="Submit" id="addModalFormButton">
+							<!-- <button class="btn btn-primary"  type="submit">Add Post</button> -->
+						</div>
+			
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 
-
+</form>
 
 
 
@@ -163,37 +202,39 @@
 <!-- =================================================================================== -->
 
 <!-- ADD CATEGORY MODAL -->
-<div class="modal fade" id="addCategoryModal">
-	<div class="modal-dialog modal-lg">
-		<div class="modal-content">
-			<div class="modal-header bg-success text-white">
-				<h5 class="modal-title" id="addCategoryModalLabel">Add Category</h5>
-				<button class="close" data-dismiss="modal">
-					<span>&times;</span>
-				</button>
+<!-- <form action="/postcategory/create" method="post">
+		<div class="modal fade" id="addCategoryModal">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<div class="modal-header bg-success text-white">
+							<h5 class="modal-title" id="addCategoryModalLabel">Add Category</h5>
+							<button class="close" data-dismiss="modal">
+								<span>&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<form>
+								<div class="form-group">
+									<label for="title" class="form-control-label">Title</label>
+									<input type="text" class="form-control" name="category">
+								</div>					
+							</form>
+						</div>
+						<div class="modal-footer">
+							<button class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button class="btn btn-success" >Add Category</button>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="modal-body">
-				<form>
-					<div class="form-group">
-						<label for="title" class="form-control-label">Title</label>
-						<input type="text" class="form-control">
-					</div>					
-				</form>
-			</div>
-			<div class="modal-footer">
-				<button class="btn btn-secondary" data-dismiss="modal">Close</button>
-				<button class="btn btn-success" data-dismiss="modal">Add Category</button>
-			</div>
-		</div>
-	</div>
-</div>
+</form> -->
 
 
 
 <!-- =================================================================================== -->
 
 <!-- ADD USER MODAL -->
-<div class="modal fade" id="addUserModal">
+<!-- <div class="modal fade" id="addUserModal">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<div class="modal-header bg-warning text-white">
@@ -229,9 +270,38 @@
 		</div>
 	</div>
 </div>
-
+ -->
 
 
   <script>
-    CKEDITOR.replace('editor1');
+		// alert('connecting11!!!!!!!')
+		CKEDITOR.replace('editor1');
+		// $('#button').submit(function(e) {
+		// 	e.preventDefault();
+
+		// 	$('#addPostModal').modal('toggla');
+		// 	return false;
+		// })
+
+
+	$(function() {
+
+	$('#addModalFormButton').on('click', function(e) {
+			e.preventDefault();
+			// alert('submit')
+
+			$.ajax({
+					type: "POST",
+					url: $form.attr('action'),
+					data: $('form.addModalFormButtonTag').serialize(),
+					success: function(response) {
+							alert(response['response']);
+					},
+					error: function() {
+							alert('Error');
+					}
+			});
+			return false;
+	});
+	});
   </script>

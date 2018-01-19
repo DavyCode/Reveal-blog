@@ -8,6 +8,8 @@
  * For more information on configuration, check out:
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.globals.html
  */
+var post = require('../api/models/Post.js');
+
 module.exports.globals = {
 
   /****************************************************************************
@@ -28,8 +30,8 @@ module.exports.globals = {
   *                                                                           *
   ****************************************************************************/
 
-	async: true,
-
+  async: true,
+  Post : post,
   /****************************************************************************
   *                                                                           *
   * Expose the sails instance representing your app. If this is disabled, you *

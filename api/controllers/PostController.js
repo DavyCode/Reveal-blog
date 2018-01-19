@@ -14,9 +14,10 @@ module.exports = {
   show: function(req, res) {
     res.view('post/show')
   },
+  
 
   //CREATE POST 
-  creat: function(req, res) {
+  create: function(req, res) {
     var title = req.body.title;
     var body = req.body.body;
     var category = req.body.category;
@@ -41,6 +42,5 @@ module.exports = {
          res.redirect('/admin/dashboard');
     }
   }
-
 };
 
