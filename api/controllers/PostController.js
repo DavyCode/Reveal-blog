@@ -36,7 +36,7 @@ module.exports = {
               {error: 'Could not create post'}
             );
           }
-          res.redirect('/post/home');
+          res.redirect('/admin/dashboard');
         });
     }else{
          res.redirect('/admin/dashboard');
