@@ -6,7 +6,7 @@ a [Sails](http://sailsjs.org) application
 
 ##GET
 ``
-   /
+   /                       Landing
   /post/home               VIEW post
   /admin/dashboard        
   /admin/edit/:id          EDIT post

@@ -28,9 +28,9 @@ module.exports.connections = {
   * Installed by default.                                                    *
   *                                                                          *
   ***************************************************************************/
-  // localDiskDb: {
-  //   adapter: 'sails-disk'
-  // },
+  localDiskDb: {
+    adapter: 'sails-disk'
+  },
 
   /***************************************************************************
   *                                                                          *
@@ -63,7 +63,13 @@ module.exports.connections = {
     // user: 'username', //optional
     // password: 'password', //optional
     database: 'blogDB' //optional
-  }
+  },
+
+  //custom connection for production
+  productionMongo: {
+    adapter: 'sails-mongo',
+    url: process.env.MONGODB_URI
+}
 
   /***************************************************************************
   *                                                                          *
