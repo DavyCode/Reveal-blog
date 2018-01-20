@@ -1,3 +1,23 @@
 <%include ../partials/nav%> 
 
-show page
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-sm-10">
+      <div class="masonry__container masonry--active">
+        <article class="masonry__item voh vnn filter-web-design" data-masonry-filter="Web Design" style="position: absolute; left: 0px;"> 
+            <div class="article__title text-center" style="text-align:center; margin: 10px; color: gray; font-weight:200; padding-top:2em" >
+                <h2> <%= post.title %> </h2>
+                 <span> <%= post.createdAt.toDateString() %> </span><span><a href="#">Category</a></span> 
+            </div>
+            <hr>
+            <div class="card text-center">
+              <img class="card-img-top" src="/images/bg.jpg" alt="">
+              <div class="card-body">
+                <p class="card-text">  <%= post.body %> </p> <a href="/post/home">Go back »</a> 
+              </div>
+            </div> 
+        </article>    
+       </div>
+    </div>
+  </div>
+</div>

@@ -8,11 +8,30 @@
 module.exports = {
   //POST CONTROLLER
   home: function (req, res) {
-    res.view('post/home')
+    Post.find({}).exec(function(err, allPost) {
+      if(err){
+        res.send(500,
+          {error: 'Could not create post'});
+      }
+      res.view('post/home', {post: allPost || []})
+    })
   },	
+
+
    //SHOW CONTROLLER
-  show: function(req, res) {
-    res.view('post/show')
+  'show' : function(req, res) {
+
+    Post.findOne({ 
+      id: req.params.id
+    })
+    .exec(function(err, foundPost) {
+      if(err){
+        res.send(500,
+           {error: 'Cannot find article with the given id : '+id}
+        );
+      }
+      res.view('post/show', { post : foundPost});
+    });
   },
   
 
