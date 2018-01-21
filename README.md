@@ -40,7 +40,7 @@ Clone this repo, install dependencies, then start the project with the following
 > cd blog
 > npm install
 > npm start
-> app is up on post 3000
+> app is up on port 3000
 ```
 
 
