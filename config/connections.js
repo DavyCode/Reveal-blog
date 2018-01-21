@@ -71,8 +71,7 @@ module.exports.connections = {
   //custom connection for production
   productionMongo: {
     adapter: 'sails-mongo',
-    // url: process.env.MONGODB_URI
-    url: 'mongodb://davycode:swood/66@ds153577.mlab.com:53577/reveal-blog'
+    url: process.env.MONGODB_URI
 }
 
   /***************************************************************************
