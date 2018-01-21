@@ -38,8 +38,8 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/anonymous node/sails user/blog.git"
+    "url": "https://github.com/DavyCode/Reveal-blog.git"
   },
-  "author": "anonymous node/sails user",
-  "license": ""
+  "author": "Azemoh Paul",
+  "license": "MIT"
 }
