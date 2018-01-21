@@ -18,7 +18,11 @@ module.exports.models = {
   *                                                                          *
   ***************************************************************************/
   connection: 'localDiskDb',
+
   connection:  'mongodbServer',
+
+  connection: 'productionMongo',
+  
   schema: true,
 
   /***************************************************************************
