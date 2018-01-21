@@ -18,6 +18,7 @@
  * For more information on configuration, check out:
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.connections.html
  */
+var db = require('./env/keys')
 
 module.exports.connections = {
 
@@ -28,9 +29,9 @@ module.exports.connections = {
   * Installed by default.                                                    *
   *                                                                          *
   ***************************************************************************/
-  // localDiskDb: {
-  //   adapter: 'sails-disk'
-  // },
+  localDiskDb: {
+    adapter: 'sails-disk'
+  },
 
   /***************************************************************************
   *                                                                          *
@@ -56,19 +57,22 @@ module.exports.connections = {
   * Run: npm install sails-mongo@for-sails-0.12 --save                       *
   *                                                                          *
   ***************************************************************************/
-  // mongodbServer: {
-  //   adapter: 'sails-mongo',
-  //   host: 'localhost',
-  //   port: 27017,
-    // user: 'username', //optional
-    // password: 'password', //optional
-    // database: 'blogDB' //optional
-  // },
+  mongodbServer: {
+    adapter: 'sails-mongo',
+    host: 'localhost',
+    port: 27017,
+    // user: 'username', 
+    // password: 'password', 
+    // database: db.database
+    database: 'blogDB' 
+    // 
+  },
 
   //custom connection for production
   productionMongo: {
     adapter: 'sails-mongo',
-    url: process.env.MONGODB_URI
+    // url: process.env.MONGODB_URI
+    url: 'mongodb://davycode:swood/66@ds153577.mlab.com:53577/reveal-blog'
 }
 
   /***************************************************************************
